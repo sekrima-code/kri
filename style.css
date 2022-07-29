@@ -1,89 +1,546 @@
-@keyframes anim{
-	from{width: 10%;}
-	to{width: 100%;}
+*{
+    margin: 0;
+    padding: 0;
 }
 
-#d1{
-	animation: anim 2s ease infinite alternate;
-	animation-play-state: paused;
-}
-#d1:hover{
-	animation-play-state: running;
-}
-
-#d1{
-    height: 50px;
-    border: 1px solid red;
-}
-@keyframes anim{
-	from{width: 10%;}
-	to{width: 100%;}
-}
-
-#anim{
-	width: 50px;
-	animation: anim 2s ease alternate infinite;
-	animation-play-state: paused;
-}
-#hoverme:hover + #anim{
-	animation-play-state: running;
-}
-#hoverme{
-    padding: 10px;
-    border: 1px solid red;
-    margin-bottom: 30px;
-	width: 30%;
-}
-#anim{
-    height: 50px;
-    border: 1px solid blue;
-}
+/*start general*/
 body{
-	margin: 0px;
+    font-size: 14px;
+    line-height: 17px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
 }
-@keyframes bouncing{
-	40%, 70%, 90%{
-		animation-timing-function: ease-out;
-		bottom: 0;
-	}
-	0%{
-		bottom: 200px;
-		left: 0;
-		animation-timing-function: ease-in;
-	}
-	55%{
-		bottom: 50px;
-		animation-timing-function: ease-in;
-	}
-	80%{
-		bottom: 25px;
-		animation-timing-function: ease-in;
-	}
-	95%{
-		bottom: 10px;
-		animation-timing-function: ease-in;
-	}
-	100%{
-		left: 110px;
-		bottom: 0;
-		animation-timing-function: ease-out;
-	}
+.container{
+    /* width: 75%;
+    margin: 0 auto; */
+    margin: 0 12.5%;
+}
+.hidden{
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    margin: -1px;
+    overflow: hidden;
+}
+.lead, .recommendation h3, .timetable-info h2{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 27px;
+}
+.site-header, .timetable {
+    color: #fff;
+    background-color: #222;
+}
+.column-container{
+    display: flex;
+    gap: 10px 16%;
+}
+.column-container .left-column, .column-container .right-column{
+    max-width: 480px;
+    
+}
+/* end general */
+
+/* start header */
+
+.site-header .container{
+    /* background-image: url("../img/moon-rocket.png");
+    background-repeat: no-repeat;
+    background-position: 100% 130px; */
+    
+    padding-top: 54px;
+    min-height: 400px;     
+    padding-bottom: 180px;
 }
 
 
-#wrapper{
-	margin: 0px auto;
-	width: 220px;
-	height: 220px;
-	border: 1px solid red;
-	position: relative;
+.main-nav{
+    display: flex;
+    margin-bottom: 24px;
 }
-#ball{
-	background: red;
-	width: 20px;
-	height: 20px;
-	border-radius: 10px;
-	position: absolute;
-	
-	animation: bouncing 5s infinite;
+.logo{
+    width: 62px;
+    height: 62px;
+    margin-right: 62px;
+}
+ul {
+    list-style: none;
+}
+.site-menu{
+    display: flex;
+    width: 706px;
+    margin-top: 38px;
+}
+.site-menu a{
+    text-decoration: none;
+    display: block;
+    margin-right: 30px;
+    color: #D4D4D4;
+}
+.site-header a:hover{
+    color:#fff;
+    transform: scale(1.1);
+    transition: 3s;
+}
+.site-menu a:active{
+    color:#ccc;
+}
+.contact-menu{
+    display: flex;
+    max-width: 180px;
+    margin-top: 25px;
+    margin-left: auto;
+}
+.contact-menu li{
+    margin-left: 24px;
+  
+}
+.contact-menu .icon{
+    width: 17px;
+    height: 17px;
+    display: block;
+}
+.contact-menu .icon-mail{
+    background: url(../img/mail-icon.png) no-repeat 0 50%;
+}
+.contact-menu .icon-phone{
+    background: url(../img/phone-icon.png) no-repeat 0 50%;
+}
+.contact-menu a:hover{
+    opacity: 0.8;
+}
+.contact-menu a:active{
+    opacity: 0.4;
+}
+
+
+.about-us{
+    width: 300px;
+    padding-left: 122px;
+}
+.about-us h1{
+    margin-bottom: 30px;
+    font-size: 45px;
+    font-family: 'Courier New', monospace;
+    line-height: 50px;
+
+}
+.about-us p{
+    margin-bottom: 50px;
+    color: #D4D4D4;
+}
+/* end header */
+
+/* start button */
+.btn{
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+
+    width: 190px;
+    padding: 17px 25px;
+    text-transform: uppercase;
+    vertical-align: top;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    color: #222;
+}
+.btn::after{
+    content:"";
+
+    position: absolute;
+    top: 17px;
+    right: 17px;
+
+    width: 19px;
+    height: 16px;
+    background: url(../img/right-arrow-dark.png) no-repeat 0 0;
+}
+.btn-yellow{
+    background-color: #FFCB06;
+}
+.btn-grey{
+    background-color: #222222;
+    color: #FFFFFF;
+    width: 215px;
+}
+.btn-grey::after{
+    background: url(../img/right-arrow-white.png);
+}
+.btn-grey:hover{
+    background-color: #676767;
+}
+.btn-grey:active{
+    background-color: #ccc;
+}
+/* end button */
+
+/* start advantage */
+.advantage{
+    background: #131313;
+    color: #D4D4D4;
+    padding: 85px 0;
+}
+.advantage-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    gap: 80px;
+}
+.advantage-list li{
+    position: relative;
+
+    width: 180px;
+    padding-top: 110px;    
+}
+.advantage-list li:last-child{
+    margin-right: 0;
+}
+.advantage-list li::after{
+    content: "";
+    top:0;
+    left:0;
+
+    position: absolute;
+    width: 60px;
+    height: 68px;
+}
+.advantage-made-in-russia::after{
+    background: url(../img/advantage-icon-1.png) no-repeat;
+}
+.advantage-food::after{
+    background: url(../img/advantage-icon-2.png) no-repeat;
+}
+.advantage-pilots::after{
+    background: url(../img/advantage-icon-3.png) no-repeat;
+}
+.advantage-moon-rover::after{
+    background: url(../img/advantage-icon-4.png) no-repeat;
+}
+/* end advantage */
+
+
+/* 
+уюрал заменил на gap в .column-container
+.column-container .left-column{
+    margin-right: 80px;
+} */
+
+/* start moon-vacation */
+.moon-vacation{
+    padding: 80px 0 126px;
+}
+.moon-vacation .lead{
+
+    margin: 0px 0px 20px;
+}
+.moon-vacation p{
+    margin-top: 25px;
+}
+/* end moon-vacation */
+
+
+
+/* start recommendation */
+.recommendation{
+    padding: 20px 0 55px;
+}
+.recommendation h3{   
+    margin-bottom: 27px;
+}
+.recommendation-list{
+    padding-left: 30px;
+  
+}
+.recommendation-list li{
+    position: relative;
+  
+    margin-bottom: 20px;
+}  
+.recommendation-list li::before{
+    /* убрал поинтеры и вместо них */
+    content: "";
+    position: absolute;
+    left: -25px;
+    top: 5px;
+  
+    width: 8px;
+    height: 8px;
+  
+    border-radius: 50%;
+    background-color: #feca30;
+}
+/* end recommendation */
+
+/* start request */
+.vacation-request{
+    padding: 80px 0;
+    color: #000000;
+    background-color: #f0f0f0;
+}
+.vacation-request .lead{
+    margin: 20px 0 35px;
+}
+.vacation-request p{
+    width: 340px;
+}
+.vacation-request-form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.vacation-request-form div{
+    width: 100%;
+    margin: 0;
+    margin-bottom: 8px;
+}
+.vacation-request-form .half-field{
+    width: 49%;
+    margin-bottom: 20px;
+}
+.vacation-request-form .btn {
+    margin-top: 30px;
+    text-align: left;
+} 
+
+.vacation-request-form input[type="text"], .vacation-request-form input[type="tel"]{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+    border: 0;
+}
+.vacation-request-form input[type="text"]:hover::-webkit-input-placeholder,
+.vacation-request-form input[type="tel"]:hover::-webkit-input-placeholder{
+    color: #FFCB06;
+}
+.vacation-request-form input[type="text"]:hover::-moz-placeholder,
+.vacation-request-form input[type="tel"]:hover::-moz-placeholder{
+    color: #FFCB06;
+}
+.vacation-request-form input[type="text"]:not(:disabled):focus,
+.vacation-request-form input[type="tel"]:not(:disabled):focus{
+    border-color: #FFCB06;
+    outline-color: #FFCB06;
+}
+.vacation-request-form input[type="checkbox"]{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.vacation-request-form input[type="checkbox"] ~ label::before{
+    content: '\2713';
+    
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 25px;
+    height: 25px;
+    
+    color: #fff;
+    font-weight: bold;
+    background-color: #fff;
+    
+    margin-right: 0.5em;
+    border: 1px solid #fff;
+    border-radius: 0.25em;
+}
+/* стили включенного */
+.vacation-request-form input[type="checkbox"]:checked ~ label::before{
+    color: #000;
+}
+/* стили при наведении курсора на checkbox */
+.vacation-request-form input[type="checkbox"]:not(:disabled):not(:checked)~label:hover::before{
+    background-color: #FFCB06;
+}
+  /* стили для активного состояния чекбокса (при нажатии на него) */
+.vacation-request-form input[type="checkbox"]:not(:disabled):active~label::before{
+    border-color: #FFCB06;
+}
+  /* стили для чекбокса, находящегося в фокусе */
+.vacation-request-form input[type="checkbox"]:focus~label::before {
+    box-shadow: 0 0 0 0.2rem rgb(255, 201, 6, 0.6);
+}
+  /* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+.vacation-request-form input[type="checkbox"]:focus:not(:checked)~label::before {
+    border-color: #000;
+}
+  /* стили для чекбокса, находящегося в состоянии disabled */
+.vacation-request-form input[type="checkbox"]:disabled~label::before {
+    background-color: #e9ecef;
+}
+
+/*end request */
+
+/* start timetable */
+.timetable {
+    padding: 80px 0;
+}  
+.timetable-info {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 55px;
+}  
+.timetable-info h2 {
+    width: 180px;
+    margin-top: 15px;
+
+    color: #feca30;
+} 
+.timetable-info p {
+    width: 440px;
+    margin-left: auto;
+    margin-right: 80px;
+
+}  
+.timetable-info a {
+    color: #feca30;
+}  
+.timetable-info a:hover {
+    color: #fff;
+}  
+.timetable-info a:active {
+    color: #ccc;
+}  
+.timetable-fligts{
+    width: 100%;
+    border-collapse: collapse;
+}  
+.timetable-fligts tr {
+    color: #fff;
+  
+    border-bottom: 1px solid #555555;
+    background-color: #222222;
+}  
+.timetable-fligts th {
+    width: 180px;
+    padding: 15px;
+  
+    color: white;
+    text-align: left;
+  
+    background-color: #111111;
+}  
+.timetable-fligts td {
+    width: 180px;
+    padding: 15px;
+  
+    color: white;
+    text-transform: uppercase;
+}  
+.timetable-fligts th:last-child, .timetable-fligts td:last-child{
+    width: 140px;
+}
+/* end timetable */
+
+.site-footer {
+    padding-top: 50px;
+    padding-bottom: 80px;
+  
+    color: #ffffff;
+  
+    background-color: #131313;
+}
+   
+.footer-columns-container {
+    display: flex;
+} 
+.footer-columns-container .left-column {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    margin-right: 100px;
+}  
+.footer-columns-container .right-column {
+    width: 720px;
+    padding-top: 35px;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+  
+} 
+.logo-container .logo {
+    margin-right: 20px;
+}
+  
+
+.copyrights {
+    margin-top: auto;
+  
+    color: #555555;
+}
+  
+.footer-menu {
+    display: flex;
+}
+  
+.footer-menu > li {
+    width: 180px;
+    margin-right: 60px;
+}  
+.footer-submenu-title {
+    display: block;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+  
+    font-size: 14px;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+  
+    border-bottom: 1px solid #555555;
+}  
+.footer-submenu > li {
+    margin-bottom: 20px;
+}  
+.footer-submenu a {
+    text-decoration: none;
+    color: #888888;
+}  
+.footer-nav a:hover {
+    color: white;
+} 
+.footer-nav a:active {
+    color: #ccc;
+}
+  
+
+
+
+
+@media (min-width: 1280px){
+    .site-header .container{
+        background-image: url("../img/moon-rocket.png");
+        background-repeat: no-repeat;
+        background-position: 100% 130px;
+    }
+
+}
+@media (max-width: 1024px){
+    .vacation-request .container{
+        flex-direction: column;
+    }
+}
+@media (max-width: 960px){
+    /* .site-header .container{
+        background-position: center bottom;
+        min-height: 720px;
+    } */
+    .container{
+        margin: 0 5%;
+    }
+    .column-container, .footer-columns-container, .footer-menu{
+        flex-direction: column;
+    }
+} 
+@media (max-width: 768px){
+    .container{
+        margin: 0 25px;
+        width: 100%;
+    }
 }
